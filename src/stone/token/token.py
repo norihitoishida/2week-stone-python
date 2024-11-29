@@ -116,11 +116,12 @@ class NumberToken(BaseToken):
 
 
 class StringToken(BaseToken):
-    def __init__(self, line: int):
+    def __init__(self, line: int, text: str):
         """
         :param int line: トークンの位置の行番号
         """
         self._line_number = line
+        self._text = text
 
     def get_line_number(self) -> int:
         """トークンの位置の行番号を取得"""
@@ -140,8 +141,9 @@ class StringToken(BaseToken):
 
     def get_number(self) -> int:
         """整数リテラルを整数(int)として返す"""
+        # TODO: エラー実装
         ...
 
     def get_text(self) -> str:
         """識別子トークン/整数リテラル/文字列リテラルを文字列(str)として返す"""
-        ...
+        return str(self._text)
